@@ -32,7 +32,12 @@ allprojects {
     jcenter()
     mavenCentral()
     maven {
-      url 'https://jitpack.io'
+    name = "GitHubPackages"
+    url = "https://maven.pkg.github.com/debashiscodex/material"
+    credentials {
+    username = System.getenv("JAVA_USERNAME")
+    password = System.getenv("JAVA_TOKEN")
+    }
     }
   }
 }
