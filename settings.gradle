@@ -1,1 +1,16 @@
 include ':app', ':library'
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            url = uri("https://maven.pkg.github.com/debacodex/material")
+            credentials {
+                username = "JAVA_USERNAME"
+                password = "JAVA_TOKEN"
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
