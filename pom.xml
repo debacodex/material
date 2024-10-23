@@ -1,47 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.debashis.io.material</groupId>
-    <artifactId>material</artifactId>
-    <version>1.0.2</version>
-      <url>https://github.com/debacodex/material</url>
+    <groupId>com.yourcompany</groupId>
+    <artifactId>your-package-name</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>3.0.0</version>
+                <configuration>
+                    <repositoryUrl>https://your-repository-url</repositoryUrl>
+                      <username>${env.JAVA_USERNAME}</username>
+            <password>${env.JAVA_TOKEN}</password>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <github.global.server>github</github.global.server>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-  <scm>
-    <connection>scm:git:https://github.com/debacodex/material.git</connection>
-    <url>https://github.com/debacodex/material</url>
-  </scm>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Deba Codex Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/debacodex/material</url>
-        </repository>
-    </distributionManagement>
-
 </project>
